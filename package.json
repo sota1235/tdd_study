@@ -1,0 +1,56 @@
+{
+  "name": "ts-simple-boilderplate",
+  "version": "0.0.1",
+  "description": "Simple boilerplate for @sota1235",
+  "main": "index.js",
+  "engines": {
+    "node": ">=v12.10.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.7",
+    "@typescript-eslint/eslint-plugin": "3.7.0",
+    "@typescript-eslint/parser": "3.7.0",
+    "eslint": "7.5.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "husky": "4.2.5",
+    "jest": "26.1.0",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5",
+    "ts-jest": "26.1.3",
+    "ts-loader": "8.0.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --progress --colors --watch",
+    "fix": "npm run prettier && npm run eslint:fix",
+    "lint": "npm run eslint",
+    "eslint": "eslint 'src/**/*.ts'",
+    "eslint:fix": "npm run eslint --fix",
+    "prettier": "prettier './src/**/*.ts' --write",
+    "test": "jest",
+    "test:ci": "jest -c ./jest.config.ci.js"
+  },
+  "keywords": [],
+  "author": "@sota1235",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run fix",
+      "git add"
+    ]
+  }
+}
